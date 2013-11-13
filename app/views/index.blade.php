@@ -32,150 +32,59 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>{{ HTML::link('/','Notes') }}</li>
-                <li>{{ HTML::link('/new-note','New') }}</li>
+                <li>{{ HTML::link('/note/create','New') }}</li>
             </ul>
         </div>
     </div>
 </div>
 <div class="container">
+    @foreach($notes as $note)
     <div class="span12">
-         <div class="panel panel-default">
-           <div class="panel-heading"><a class="pull-right" href="#">Settings</a> <h4>Note</h4></div>
-            <div class="panel-body">
-            <p>Lorem Lipsum</p>
-<pre class="prettyprint linenums prettyprinted">
-function fib($n) {
-
-    $a = 1;
-    $b = 1;
-
-    while (--$n >= 0) {
-
-        echo "$a\n";
-        $tmp = $a;
-        $a += $b;
-        $b = $tmp;
-    }
-}
-</pre>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="btn-group pull-right">
+                    <a class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" href="#">
+                        Action
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ URL::route('note.edit', array($note->id)) }}">
+                                <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="{{ URL::route('note.destroy', array($note->id)) }}">
+                                <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Delete
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <h4>{{ $note->title }}</h4>
             </div>
-         </div>
+            <div class="panel-body">
+                {{ $note->content }}
+            </div>
         </div>
-
-     <div class="span12">
-         <div class="panel panel-default">
-           <div class="panel-heading"><a class="pull-right" href="#">Settings</a> <h4>Note</h4></div>
-            <div class="panel-body">
-            <p>Lorem Lipsum</p>
-<pre class="prettyprint linenums prettyprinted">
-$foo = new Upload($_FILES['form_field']);
-if ($foo->uploaded) {
-  // save uploaded image with no changes
-  $foo->Process('/home/user/files/');
-  if ($foo->processed) {
-    echo 'original image copied';
-  } else {
-    echo 'error : ' . $foo->error;
-  }
-  // save uploaded image with a new name
-  $foo->file_new_name_body = 'foo';
-  $foo->Process('/home/user/files/');
-  if ($foo->processed) {
-    echo 'image renamed "foo" copied';
-  } else {
-    echo 'error : ' . $foo->error;
-  }
-  // save uploaded image with a new name,
-  // resized to 100px wide
-  $foo->file_new_name_body = 'image_resized';
-  $foo->image_resize = true;
-  $foo->image_convert = gif;
-  $foo->image_x = 100;
-  $foo->image_ratio_y = true;
-  $foo->Process('/home/user/files/');
-  if ($foo->processed) {
-    echo 'image renamed, resized x=100
-          and converted to GIF';
-    $foo->Clean();
-  } else {
-    echo 'error : ' . $foo->error;
-  }
-}
-</pre>
-
-            </div>
-         </div>
     </div>
-
-     <div class="span12">
-         <div class="panel panel-default">
-           <div class="panel-heading"><a class="pull-right" href="#">Settings</a> <h4>Note</h4></div>
-            <div class="panel-body">
-            <p>Lorem Lipsum</p>
-            </div>
-         </div>
-    </div>
-
-     <div class="span12">
-         <div class="panel panel-default">
-           <div class="panel-heading"><a class="pull-right" href="#">Settings</a> <h4>Note</h4></div>
-            <div class="panel-body">
-            <p>Lorem Lipsum</p>
-            </div>
-         </div>
-    </div>
-
-     <div class="span12">
-         <div class="panel panel-default">
-           <div class="panel-heading"><a class="pull-right" href="#">Settings</a> <h4>Note</h4></div>
-            <div class="panel-body">
-            <p>Lorem Lipsum</p>
-            </div>
-         </div>
-    </div>
-
-     <div class="span12">
-         <div class="panel panel-default">
-           <div class="panel-heading"><a class="pull-right" href="#">Settings</a> <h4>Note</h4></div>
-            <div class="panel-body">
-            <p>Lorem Lipsum</p>
-            </div>
-         </div>
-    </div>
-
-     <div class="span12">
-         <div class="panel panel-default">
-           <div class="panel-heading"><a class="pull-right" href="#">Settings</a> <h4>Note</h4></div>
-            <div class="panel-body">
-            <p>Lorem Lipsum</p>
-            </div>
-         </div>
-    </div>
-
-     <div class="span12">
-         <div class="panel panel-default">
-           <div class="panel-heading"><a class="pull-right" href="#">Settings</a> <h4>Note</h4></div>
-            <div class="panel-body">
-            <p>Lorem Lipsum</p>
-            </div>
-         </div>
-    </div>
-
+    @endforeach
 </div>
 <div style="padding-top: 100px;" id="footer" class="container">
     <nav style="border-top: 1px solid lightslategray;" class="navbar navbar-default navbar-fixed-bottom">
         <div class="navbar-inner navbar-content-center">
-            <p style="text-align: center; padding-top: 15px;">Copyright © 2013 <a href="http://www.sefakaragoz.com">Sefa Karagöz</a></p>
+            <p style="text-align: center; padding-top: 15px;">Copyright © 2013
+                <a href="http://www.sefakaragoz.com">Sefa Karagöz</a></p>
         </div>
     </nav>
 </div>
-        <script type="text/javascript">
-            !function ($) {
-                $(function () {
-                    window.prettyPrint && prettyPrint()
-                })
-            }(window.jQuery)
-        </script>
-    </body>
+<script type="text/javascript">
+    !function ($) {
+        $(function () {
+            window.prettyPrint && prettyPrint()
+        })
+    }(window.jQuery)
+</script>
+</body>
 
 </html>

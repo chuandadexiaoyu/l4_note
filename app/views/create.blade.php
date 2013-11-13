@@ -35,36 +35,49 @@
     </div>
 </div>
 <div class="container">
+    {{ Form::open(array('action' => 'NotesController@store', 'id' => 'postForm', 'onsubmit'=>'return postForm()')) }}
     <div class="panel panel-default">
         <div class="panel-heading">
-    <h3 class="panel-title">New Notes</h3>
-  </div>
-  <div class="panel-body">
-       <div class="control-group ">
-            <label for="title" class="control-label">Title</label>
-
-            <div class="controls">
-                <input type="text" name="title" placeholder="Title" id="title" class="form-control">                  </div>
+            <h3 class="panel-title">New Notes</h3>
         </div>
+        <div class="panel-body">
+            <div class="control-group ">
+                <label for="title" class="control-label">Title</label>
 
-        <br>
-         <div class="control-group ">
-            <label for="content" class="control-label">Content</label>
+                <div class="controls">
+                    <input type="text" name="title" placeholder="Title" id="title" class="form-control"></div>
+            </div>
 
-            <div class="controls">
-               @include('editor')
+            <br>
+
+            <div class="control-group ">
+                <label for="content" class="control-label">Content</label>
+
+                <div class="controls">
+                    @include('editor')
+                </div>
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            {{ Form::close() }}
+
+            <br>
+            <br>
+            <p>prettyprint linenums prettyprinted</p>
+            <div style="width: 150px; height: 5px; padding-bottom: 100px;">
+                <pre class="prettyprint linenums prettyprinted">
+                    alert('sefa');
+                </pre>
             </div>
         </div>
-
-        <br>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-  </div>
-</div>
+    </div>
 </div>
 <div style="padding-top: 100px;" id="footer" class="container">
     <nav style="border-top: 1px solid lightslategray;" class="navbar navbar-default navbar-fixed-bottom">
         <div class="navbar-inner navbar-content-center">
-            <p style="text-align: center; padding-top: 15px;">Copyright © 2013 <a href="http://www.sefakaragoz.com">Sefa Karagöz</a></p>
+            <p style="text-align: center; padding-top: 15px;">Copyright © 2013
+                <a href="http://www.sefakaragoz.com">Sefa Karagöz</a></p>
         </div>
     </nav>
 </div>
