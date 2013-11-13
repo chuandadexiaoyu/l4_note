@@ -13,5 +13,10 @@
 
 Route::get('/', function()
 {
-	return View::make('index');
+    return View::make('index');
+});
+
+Route::get('/new-note', function()
+{
+    return View::make('new-note');
 });
