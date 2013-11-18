@@ -13,10 +13,10 @@
 
 Route::get('/', function () {
 
-    return View::make('index');
+    return View::make('notes.index');
 });
 
-Route::get('/create', function () {
+Route::resource('note', 'NoteController');
 
-    return View::make('create');
-});
+Route::get('/create', 'NoteController@create');
+

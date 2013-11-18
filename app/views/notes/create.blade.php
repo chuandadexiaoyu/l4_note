@@ -70,10 +70,10 @@
             <div class="hero-unit">
                 <div class="row-fluid">
                     <div class="span10">
-                        {{ Form::open(array('action' => '')) }}
+                        {{ Form::open(array('action' => 'NoteController@store')) }}
 
                         <!-- Title -->
-                        <div class="control-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                        <div class="control-group {{ $errors->has('title') ? 'error' : '' }}">
                             <label class="control-label" for="title">Title</label>
 
                             <div class="controls">
@@ -85,7 +85,7 @@
                         </div>
 
                         <!-- Content -->
-                        <div class="control-group {{ $errors->has('content') ? 'has-error' : '' }}">
+                        <div class="control-group {{ $errors->has('content') ? 'error' : '' }}">
                             <label class="control-label" for="title">Content</label>
 
                             <div class="controls">
