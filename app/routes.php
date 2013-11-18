@@ -13,7 +13,10 @@
 
 Route::get('/', function () {
 
-    return Redirect::action('NotesController@index');
+    return View::make('index');
 });
 
-Route::resource('note', 'NotesController');
+Route::get('/create', function () {
+
+    return View::make('create');
+});

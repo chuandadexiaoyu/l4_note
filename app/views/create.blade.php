@@ -1,85 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>sf Notes</title>
+    <meta charset="utf-8">
+    <title>sf Note</title>
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS are placed here -->
-    {{ HTML::style('assets/css/bootstrap.css') }}
-    {{ HTML::script('assets/js/jquery-2.0.3.min.js') }}
-    {{ HTML::script('assets/js/bootstrap.min.js') }}
-    <style>
-        @section('styles')
-			body {
-                 padding-top: 100px;
-			}
-        @show
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    {{ HTML::style('assets/css/bootplus.css') }}
+    {{ HTML::script('ckeditor/ckeditor.js') }}
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+
+        .hero-unit {
+            padding: 60px;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
     </style>
+    {{ HTML::style('assets/css/bootplus-responsive.css') }}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    {{ HTML::style('assets/js/html5shiv.js') }}
+    <![endif]-->
 </head>
+
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+
             </button>
-            {{ HTML::link('/','sf Notes', array('class' => 'navbar-brand')) }}
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>{{ HTML::link('/','Notes') }}</li>
-                <li>{{ HTML::link('/new-note','New Note') }}</li>
-            </ul>
+            <a class="brand" href="#">sf Note</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active"><a href="#">Notes</a>
+                    </li>
+                    <li><a href="#about">About</a>
+                    </li>
+                    <li><a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
-<div class="container">
-    {{ Form::open(array('action' => 'NotesController@store', 'id' => 'postForm', 'onsubmit'=>'return postForm()')) }}
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">New Notes</h3>
-        </div>
-        <div class="panel-body">
-            <div class="control-group ">
-                <label for="title" class="control-label">Title</label>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="hero-unit">
+                <div class="row-fluid">
+                    <div class="span10">
+                        {{ Form::open(array('action' => '')) }}
 
-                <div class="controls">
-                    <input type="text" name="title" placeholder="Title" id="title" class="form-control"></div>
-            </div>
+                        <!-- Title -->
+                        <div class="control-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                            <label class="control-label" for="title">Title</label>
 
-            <br>
+                            <div class="controls">
+                                {{ Form::text('title', null, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Title', 'value'=>Input::old('title'))) }}
+                                @if ($errors->first('title'))
+                                <span class="help-block">{{ $errors->first('title') }}</span>
+                                @endif
+                            </div>
+                        </div>
 
-            <div class="control-group ">
-                <label for="content" class="control-label">Content</label>
+                        <!-- Content -->
+                        <div class="control-group {{ $errors->has('content') ? 'has-error' : '' }}">
+                            <label class="control-label" for="title">Content</label>
 
-                <div class="controls">
-                    @include('editor')
+                            <div class="controls">
+                                {{ Form::textarea('content', null, array('class'=>'form-control', 'id' => 'content', 'placeholder'=>'Content', 'value'=>Input::old('content'))) }}
+                                @if ($errors->first('content'))
+                                <span class="help-block">{{ $errors->first('content') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                        {{ Form::submit('Create', array('class' => 'btn btn-success')) }}
+                        {{ Form::close() }}
+                    </div>
                 </div>
             </div>
-
-            <br>
-            <button type="submit" class="btn btn-primary">Save changes</button>
-            {{ Form::close() }}
-
-            <br>
-            <br>
-            <p>prettyprint linenums prettyprinted</p>
-            <div style="width: 150px; height: 5px; padding-bottom: 100px;">
-                <pre class="prettyprint linenums prettyprinted">
-                    alert('sefa');
-                </pre>
-            </div>
         </div>
     </div>
+    <hr>
+    <footer>
+        <p>&copy; Company 2013</p>
+    </footer>
 </div>
-<div style="padding-top: 100px;" id="footer" class="container">
-    <nav style="border-top: 1px solid lightslategray;" class="navbar navbar-default navbar-fixed-bottom">
-        <div class="navbar-inner navbar-content-center">
-            <p style="text-align: center; padding-top: 15px;">Copyright © 2013
-                <a href="http://www.sefakaragoz.com">Sefa Karagöz</a></p>
-        </div>
-    </nav>
-</div>
+{{ HTML::script('assets/js/jquery-2.0.3.min.js') }}
+{{ HTML::script('assets/js/bootstrap.min.js') }}
+<script type="text/javascript">
+    window.onload = function () {
+        CKEDITOR.replace('content', {
+            "filebrowserBrowseUrl": "{{ url('filemanager/show') }}"
+        });
+    };
+</script>
 </body>
+
 </html>
