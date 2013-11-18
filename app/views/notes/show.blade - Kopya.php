@@ -13,14 +13,10 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     {{ HTML::style('assets/css/bootplus.css') }}
     {{ HTML::style('/ckeditor/contents.css') }}
+    {{ HTML::style('/assets/css/prettify.css') }}
     {{ HTML::script('assets/js/jquery-2.0.3.min.js') }}
     {{ HTML::script('assets/js/bootstrap.min.js') }}
-
-
-    {{ HTML::style('/laravel_code/css/monokai.css') }}
-    {{ HTML::style('/laravel_code/css/laravel-prettyprint.css') }}
-
-    {{ HTML::script('laravel_code/js/prettify.js') }}
+    {{ HTML::script('/assets/js/prettify.js') }}
     <style type="text/css">
         body {
             padding-top: 60px;
