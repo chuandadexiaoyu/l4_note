@@ -13,18 +13,18 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="">
+                                    <a href="{{ URL::route('note.show', $note->id) }}">
                                         <span class="glyphicon glyphicon-eye-open"></span>&nbsp;Show Note
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{{ URL::route('note.edit', array($note->id)) }}">
                                         <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit Note
                                     </a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="">
+                                    <a href="{{ URL::route('note.delete', array($note->id)) }}">
                                         <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Delete Note
                                     </a>
                                 </li>

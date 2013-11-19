@@ -15,6 +15,8 @@ Route::get('/', array('as' => 'home', 'uses' => 'NoteController@index'));
 Route::get('/create', array('as' => 'create', 'uses' => 'NoteController@create'));
 
 Route::get('/category/{id}', array('as' => 'category.notes', 'uses' => 'NoteController@index'));
+Route::get('/note/{id}/delete', array('as' => 'note.delete', 'uses' => 'NoteController@confirmDestroy'));
+
 
 Route::resource('note', 'NoteController');
 Route::resource('category', 'CategoryController');

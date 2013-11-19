@@ -89,7 +89,10 @@ class NoteController extends BaseController {
      */
     public function edit($id) {
 
-        return View::make('notes.edit');
+        $note = Note::findOrFail($id);
+        $categories = Category::lists('name', 'id');
+
+        return View::make('notes.edit', compact('note', 'categories'));
     }
 
     /**
@@ -99,7 +102,36 @@ class NoteController extends BaseController {
      * @return Response
      */
     public function update($id) {
-        //
+
+        $formData = array(
+            'title'    => Input::get('title'),
+            'content'  => Input::get('content'),
+            'category' => Input::get('category')
+        );
+
+        $rules = array(
+            'title'   => 'required',
+            'content' => 'required'
+        );
+
+        $validation = Validator::make($formData, $rules);
+
+        if ($validation->fails()) {
+            return Redirect::action('NoteController@create')->withErrors($validation)->withInput();
+        }
+
+        $note = Note::findOrFail($id);
+        $note->title = $formData['title'];
+        $note->content = $formData['content'];
+
+        if ($note->save()) {
+
+            $category = Category::find($formData['category']);
+
+            $category->notes()->save($note);
+        }
+
+        return Redirect::action('NoteController@index');
     }
 
     /**
@@ -109,6 +141,16 @@ class NoteController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        //
+
+        Note::findOrFail($id)->delete();
+        return Redirect::action('NoteController@index');
+    }
+
+    public function confirmDestroy($id) {
+
+        $note = Note::findOrFail($id);
+
+        $categories = Category::lists('name', 'id');
+        return View::make('notes.confirm-destroy', compact('note', 'categories'));
     }
 }
