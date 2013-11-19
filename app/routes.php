@@ -11,12 +11,13 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', array('as' => 'home', 'uses' => 'NoteController@index'));
+Route::get('/create', array('as' => 'create', 'uses' => 'NoteController@create'));
 
-    return View::make('notes.index');
-});
+Route::get('/category/{id}', array('as' => 'category.notes', 'uses' => 'NoteController@index'));
 
 Route::resource('note', 'NoteController');
+Route::resource('category', 'CategoryController');
 
-Route::get('/create', 'NoteController@create');
+
 

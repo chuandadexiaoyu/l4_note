@@ -10,6 +10,7 @@ CKEDITOR.editorConfig = function (config) {
     //config.uiColor = '#2a323a';
 
     config.resize_enabled = true;
+    config.resize_dir = 'both';
 
     config.toolbar = [
         ['Styles','Format','Font','FontSize'],

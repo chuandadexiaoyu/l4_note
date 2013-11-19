@@ -1,76 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>sf Note</title>
-    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Le styles -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-    {{ HTML::style('assets/css/bootplus.css') }}
-    {{ HTML::script('ckeditor/ckeditor.js') }}
-    <style type="text/css">
-        body {
-            padding-top: 60px;
-            padding-bottom: 40px;
-        }
-
-        .hero-unit {
-            padding: 60px;
-        }
-
-        @media (max-width: 980px) {
-            /* Enable use of floated navbar text */
-            .navbar-text.pull-right {
-                float: none;
-                padding-left: 5px;
-                padding-right: 5px;
-            }
-        }
-    </style>
-    {{ HTML::style('assets/css/bootplus-responsive.css') }}
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    {{ HTML::style('assets/js/html5shiv.js') }}
-    <![endif]-->
-</head>
-
-<body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-
-            </button>
-            <a class="brand" href="#">sf Note</a>
-
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="active"><a href="#">Notes</a>
-                    </li>
-                    <li><a href="#about">About</a>
-                    </li>
-                    <li><a href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+@extends('layout/layout')
+@section('content')
+{{ HTML::script('ckeditor/ckeditor.js') }}
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
             <div class="hero-unit">
                 <div class="row-fluid">
                     <div class="span10">
+                       {{ Form::open(array('action' => 'CategoryController@store')) }}
+                        <h2>New Category</h2>
+                        <!-- Name -->
+                        <div class="control-group {{ $errors->has('name') ? 'error' : '' }}">
+                            <label class="control-label" for="title">Title</label>
+
+                            <div class="controls">
+                                {{ Form::text('name', null, array('class'=>'form-control', 'id' => 'name', 'placeholder'=>'Name', 'value'=>Input::old('name'))) }}
+                                @if ($errors->first('name'))
+                                <span class="help-block">{{ $errors->first('name') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                        {{ Form::submit('Create', array('class' => 'btn btn-success')) }}
+                        {{ Form::close() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="row-fluid">
+        <div class="span12">
+            <div class="hero-unit">
+                <div class="row-fluid">
+                    <div class="span10">
                         {{ Form::open(array('action' => 'NoteController@store')) }}
+                        <h2>New Note</h2>
 
                         <!-- Title -->
                         <div class="control-group {{ $errors->has('title') ? 'error' : '' }}">
@@ -80,6 +43,18 @@
                                 {{ Form::text('title', null, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Title', 'value'=>Input::old('title'))) }}
                                 @if ($errors->first('title'))
                                 <span class="help-block">{{ $errors->first('title') }}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                         <!-- Category -->
+                        <div class="control-group {{ $errors->has('category') ? 'error' : '' }}">
+                            <label class="control-label" for="title">Category</label>
+
+                            <div class="controls">
+                                {{ Form::select('category', $categories, null, array('class' => 'form-control', 'value'=>Input::old('category'))) }}
+                                @if ($errors->first('category'))
+                                <span class="help-block">{{ $errors->first('category') }}</span>
                                 @endif
                             </div>
                         </div>
@@ -102,13 +77,7 @@
             </div>
         </div>
     </div>
-    <hr>
-    <footer>
-        <p>&copy; Company 2013</p>
-    </footer>
 </div>
-{{ HTML::script('assets/js/jquery-2.0.3.min.js') }}
-{{ HTML::script('assets/js/bootstrap.min.js') }}
 <script type="text/javascript">
     window.onload = function () {
         CKEDITOR.replace('content', {
@@ -116,6 +85,4 @@
         });
     };
 </script>
-</body>
-
-</html>
+@stop

@@ -1,22 +1,15 @@
 <?php
 
-class NoteController extends BaseController {
+class CategoryController extends BaseController {
 
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index($id = null) {
+    public function index() {
 
-        if ($id)
-            $notes = Note::where('category_id', '=', $id)->orderBy('created_at', 'DESC')->paginate(10);
-        else
-            $notes = Note::orderBy('created_at', 'DESC')->paginate(10);
-
-        $categories = Category::lists('name', 'id');
-
-        return View::make('notes.index', compact('notes', 'categories'));
+        return View::make('categories.index');
     }
 
     /**
@@ -26,8 +19,7 @@ class NoteController extends BaseController {
      */
     public function create() {
 
-        $categories = Category::lists('name', 'id');
-        return View::make('notes.create', compact('categories'));
+        return View::make('categories.create');
     }
 
     /**
@@ -38,14 +30,11 @@ class NoteController extends BaseController {
     public function store() {
 
         $formData = array(
-            'title'    => Input::get('title'),
-            'content'  => Input::get('content'),
-            'category' => Input::get('category')
+            'name' => Input::get('name')
         );
 
         $rules = array(
-            'title'   => 'required',
-            'content' => 'required'
+            'name' => 'required'
         );
 
         $validation = Validator::make($formData, $rules);
@@ -54,18 +43,11 @@ class NoteController extends BaseController {
             return Redirect::action('NoteController@create')->withErrors($validation)->withInput();
         }
 
-        $note = new Note();
-        $note->title = $formData['title'];
-        $note->content = $formData['content'];
+        $category = new Category();
+        $category->name = $formData['name'];
+        $category->save();
 
-        if ($note->save()) {
-
-            $category = Category::find($formData['category']);
-
-            $category->notes()->save($note);
-        }
-
-        return Redirect::action('NoteController@index');
+        return Redirect::action('NoteController@create');
     }
 
     /**
@@ -76,9 +58,7 @@ class NoteController extends BaseController {
      */
     public function show($id) {
 
-        $note = Note::findOrFail($id);
-
-        return View::make('notes.show', compact('note'));
+        return View::make('categories.show');
     }
 
     /**
@@ -89,7 +69,7 @@ class NoteController extends BaseController {
      */
     public function edit($id) {
 
-        return View::make('notes.edit');
+        return View::make('categories.edit');
     }
 
     /**
