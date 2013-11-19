@@ -78,7 +78,8 @@ class NoteController extends BaseController {
 
         $note = Note::findOrFail($id);
 
-        return View::make('notes.show', compact('note'));
+        $categories = Category::lists('name', 'id');
+        return View::make('notes.show', compact('note', 'categories'));
     }
 
     /**

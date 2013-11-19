@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="71adbe87-0eed-475e-ad68-1347a0ccc95c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/NoteController.php" afterPath="$PROJECT_DIR$/app/controllers/NoteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/notes/index.blade.php" afterPath="$PROJECT_DIR$/app/views/notes/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layout/layout.blade.php" afterPath="$PROJECT_DIR$/app/views/layout/layout.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/notes/show.blade.php" afterPath="$PROJECT_DIR$/app/views/notes/show.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="note_app.iws" />
@@ -28,7 +28,7 @@
     <file path="$PROJECT_DIR$/vendor/symfony/console/Symfony/Component/Console/phpunit.xml.dist" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384806098335" ignored="false" />
     <file path="/NoteController.php" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384860050719" ignored="false" />
     <file path="$PROJECT_DIR$/../sf_cms/app/views/frontend/article/show.blade.php" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384808075749" ignored="false" />
-    <file path="/show.blade.php" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384809575424" ignored="false" />
+    <file path="/show.blade.php" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384860958679" ignored="false" />
     <file path="/prettify.css" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384808579173" ignored="false" />
     <file path="$PROJECT_DIR$/app/database/migrations/2013_11_19_075546_create_category_table.php" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384849914647" ignored="false" />
     <file path="/2013_11_19_075546_create_category_table.php" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384849914646" ignored="false" />
@@ -44,6 +44,7 @@
     <file path="/layout.blade.php" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384856241357" ignored="false" />
     <file path="/edit.blade.php" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384860354144" ignored="false" />
     <file path="/confirm-destroy.blade.php" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384859881892" ignored="false" />
+    <file path="Z:/temi/Modules/Temi/Views/HC.dash.sicaklik.phtml" changelist="71adbe87-0eed-475e-ad68-1347a0ccc95c" time="1384867998473" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,19 +64,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NoteController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/NoteController.php">
+      <file leaf-file-name="show.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/notes/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="7" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.0">
+            <state line="17" column="7" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/notes/edit.blade.php">
+      <file leaf-file-name="CategoryController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/CategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="38" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.39206535">
+            <state line="23" column="0" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoteController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/NoteController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="78" column="38" selection-start="1921" selection-end="1921" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -84,25 +94,16 @@
       <file leaf-file-name="menu.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layout/menu.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
+            <state line="2" column="29" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <file leaf-file-name="layout.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layout/layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="86" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirm-destroy.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/notes/confirm-destroy.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="23" selection-start="660" selection-end="660" vertical-scroll-proportion="0.0">
+            <state line="56" column="0" selection-start="2295" selection-end="2295" vertical-scroll-proportion="0.76079345">
               <folding />
             </state>
           </provider>
@@ -111,7 +112,7 @@
       <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/notes/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="22" selection-start="2072" selection-end="2072" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="45" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -135,22 +136,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/database/migrations/2013_11_19_075546_create_categories_table.php" />
         <option value="$PROJECT_DIR$/app/controllers/CategoryController.php" />
         <option value="$PROJECT_DIR$/app/models/Note.php" />
         <option value="$PROJECT_DIR$/app/models/Category.php" />
         <option value="$PROJECT_DIR$/public/ckeditor/config.js" />
         <option value="$PROJECT_DIR$/app/views/layout/footer.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/layout/menu.blade.php" />
         <option value="$PROJECT_DIR$/app/config/view.php" />
         <option value="$PROJECT_DIR$/app/views/elements/pagination.php" />
         <option value="$PROJECT_DIR$/app/views/notes/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/layout/layout.blade.php" />
         <option value="$PROJECT_DIR$/app/views/notes/index.blade.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/views/notes/confirm-destroy.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/NoteController.php" />
         <option value="$PROJECT_DIR$/app/views/notes/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/notes/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/controllers/NoteController.php" />
+        <option value="$PROJECT_DIR$/app/views/layout/menu.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layout/layout.blade.php" />
       </list>
     </option>
   </component>
@@ -236,10 +237,6 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -260,24 +257,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="note_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="l4_note" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -356,7 +335,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1296" height="1040" extended-state="6" />
+    <frame x="1912" y="-8" width="1296" height="1040" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -440,20 +419,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/ckeditor/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="12" selection-start="641" selection-end="641" vertical-scroll-proportion="0.36363637">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="415" selection-end="415" vertical-scroll-proportion="0.4294049">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layout/footer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -503,27 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layout/layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="27" selection-start="788" selection-end="788" vertical-scroll-proportion="0.3115693">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layout/menu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/notes/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="22" selection-start="2072" selection-end="2072" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="86" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0">
@@ -531,23 +475,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/notes/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="48" selection-start="539" selection-end="539" vertical-scroll-proportion="0.24270712">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/notes/confirm-destroy.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="23" selection-start="660" selection-end="660" vertical-scroll-proportion="0.0">
+        <state line="14" column="23" selection-start="660" selection-end="660" vertical-scroll-proportion="0.2613769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/notes/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="45" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/notes/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="7" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/NoteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="7" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.0">
+        <state line="78" column="38" selection-start="1921" selection-end="1921" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/notes/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/layout/menu.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="38" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.39206535">
+        <state line="2" column="29" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layout/layout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="2295" selection-end="2295" vertical-scroll-proportion="0.76079345">
           <folding />
         </state>
       </provider>

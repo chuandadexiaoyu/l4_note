@@ -56,7 +56,7 @@
                 <span class="icon-bar"></span>
 
             </button>
-            <a class="brand" href="#">sf Note</a>
+            <a class="brand" href="{{ URL::route('home') }}">sf Note</a>
             @include('layout/menu')
         </div>
     </div>
